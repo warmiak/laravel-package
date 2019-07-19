@@ -50,17 +50,17 @@ class Tailwind extends OrendoPreset
         copy(__DIR__ . '/js/bootstrap.js', resource_path('assets/js/bootstrap.js'));
         copy(__DIR__. '/js/emmet.js', resource_path('assets/js/emmet.js'));
 
-        File::copyDirectory(__DIR__.'/js/components', resource_path('assets/js/components'));
-        File::copyDirectory(__DIR__.'/js/store', resource_path('assets/js/store'));
+        File::copyDirectory(__DIR__.'/js/components', resource_path('js/components'));
+        File::copyDirectory(__DIR__.'/js/store', resource_path('js/store'));
     }
 
     public static function installTailwind()
     {
-        if (!File::isDirectory(resource_path('assets/less'))) {
-            File::makeDirectory(resource_path('assets/less'));
+        if (!File::isDirectory(resource_path('less'))) {
+            File::makeDirectory(resource_path('less'));
         }
 
-        copy(__DIR__ . '/less/app.less', resource_path('assets/less/app.less'));
+        copy(__DIR__ . '/less/app.less', resource_path('less/app.less'));
         copy(__DIR__ . '/js/tailwind.js', base_path('tailwind.js'));
     }
 
@@ -91,15 +91,15 @@ class Tailwind extends OrendoPreset
 
     public static function installMaterialDesignIcons()
     {
-        if (!File::isDirectory(resource_path('assets/css'))) {
-            File::makeDirectory(resource_path('assets/css'));
+        if (!File::isDirectory(resource_path('css'))) {
+            File::makeDirectory(resource_path('css'));
         }
 
-        if (File::exists(resource_path('assets/css/materialdesignicons.css'))) {
-            File::delete(resource_path('assets/css/materialdesignicons.css'));
+        if (File::exists(resource_path('css/materialdesignicons.css'))) {
+            File::delete(resource_path('css/materialdesignicons.css'));
         }
 
-        copy(__DIR__ . '/css/materialdesignicons.css', resource_path('assets/css/materialdesignicons.css'));
+        copy(__DIR__ . '/css/materialdesignicons.css', resource_path('css/materialdesignicons.css'));
 
         File::copyDirectory(__DIR__.'/fonts', base_path('public/fonts'));
     }
