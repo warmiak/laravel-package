@@ -21,7 +21,7 @@ class Tailwind extends OrendoPreset
 
     public static function cleanSassFolder()
     {
-        File::cleanDirectory(resource_path('assets/sass'));
+        File::cleanDirectory(resource_path('sass'));
     }
 
     public static function updatePackageArray()
@@ -45,10 +45,10 @@ class Tailwind extends OrendoPreset
 
     public static function updateScripts()
     {
-        copy(__DIR__ . '/js/app.js', resource_path('assets/js/app.js'));
-        copy(__DIR__ . '/js/admin.js', resource_path('assets/js/admin.js'));
-        copy(__DIR__ . '/js/bootstrap.js', resource_path('assets/js/bootstrap.js'));
-        copy(__DIR__. '/js/emmet.js', resource_path('assets/js/emmet.js'));
+        copy(__DIR__ . '/js/app.js', resource_path('js/app.js'));
+        copy(__DIR__ . '/js/admin.js', resource_path('js/admin.js'));
+        copy(__DIR__ . '/js/bootstrap.js', resource_path('js/bootstrap.js'));
+        copy(__DIR__. '/js/emmet.js', resource_path('js/emmet.js'));
 
         File::copyDirectory(__DIR__.'/js/components', resource_path('js/components'));
         File::copyDirectory(__DIR__.'/js/store', resource_path('js/store'));
