@@ -32,7 +32,6 @@ class Tailwind extends OrendoPreset
             'axios' => '^0.18',
             'vue' => '^2.5.7',
             'vuex' => '^3.0.1',
-            'tailwindcss' => '^0.5.3',
             'sweetalert' => '^2.1.0',
             'pretty' => '^2.0.0'
         ];

@@ -83,7 +83,7 @@ class AclSetup extends Command
         /*  Install Assets  */
         /********************/
 
-        $setupOption = $this->choice('Choose your Option', ['Install', 'Setup'], 0);
+        $setupOption = $this->choice('Choose your Option', ['Install', 'Setup', 'Scaffolding'], 0);
 
         if ($setupOption == "Install") {
             Assets::installAssets();
@@ -97,6 +97,34 @@ class AclSetup extends Command
 
             return Log::info('Assets successful installed.');
         }
+
+
+        /**********************************/
+        /*  Publish Frontend Scaffolding  */
+        /**********************************/
+
+        if ($setupOption == "Scaffolding") {
+
+            $scaffoldingOption = $this->choice('Choose your Preset', ['Bulma', 'Tailwind'], 0);
+
+            if ($scaffoldingOption == 'Bulma') {
+                $this->call('preset', [
+                    'type' => 'bulma'
+                ]);
+
+            }
+
+            if ($scaffoldingOption == 'Tailwind') {
+                $this->call('preset', [
+                    'type' => 'tailwind'
+                ]);
+
+            }
+
+            return Log::debug('ACL: '. $scaffoldingOption .' Preset successful installed.');
+
+        }
+
 
         /**********************/
         /*  Migrate Database  */
@@ -118,15 +146,6 @@ class AclSetup extends Command
 
         Assets::publishAuthServiceProvider();
 
-        /*****************************/
-        /*  Publish Frontend Assets  */
-        /*****************************/
-
-        $this->call('preset', [
-            'type' => 'tailwind'
-        ]);
-
-        Log::debug('ACL: Tailwind Preset successful installed.');
 
         /************/
         /*  Output  */
