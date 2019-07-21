@@ -30,6 +30,12 @@ class OrendoServiceProvider extends ServiceProvider
             $command->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
         });
 
+        PresetCommand::macro('bulma', function ($command) {
+            Bulma::install();
+
+            $command->info('Bulma scaffolding installed successfully.');
+            $command->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
+        });
     }
 
     /**
